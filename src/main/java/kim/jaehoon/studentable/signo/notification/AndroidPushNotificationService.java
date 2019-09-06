@@ -3,10 +3,12 @@ package kim.jaehoon.studentable.signo.notification;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 
@@ -25,6 +27,8 @@ public class AndroidPushNotificationService {
         interceptors.add(new HeaderRequestInterceptor("Authorization", "key=" + firebase_server_key));
         interceptors.add(new HeaderRequestInterceptor("Content-Type", "application/json; UTF-8"));
         restTemplate.setInterceptors(interceptors);
+        restTemplate.getMessageConverters()
+                .add(0, new StringHttpMessageConverter(StandardCharsets.UTF_8));
 
         String firebase_api_url = "https://fcm.googleapis.com/fcm/send";
         String firebaseResponse = restTemplate.postForObject(firebase_api_url, entity, String.class);

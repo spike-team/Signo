@@ -8,6 +8,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +24,10 @@ public class NotificationController {
     AndroidPushNotificationService androidPushNotificationService;
 
     @GetMapping(value = "/send")
-    public @ResponseBody ResponseEntity<String> send() throws JSONException, InterruptedException {
-        String notifications = AndroidPushPeriodicNotifications.PeriodicNotificationJson();
+    public @ResponseBody ResponseEntity<String> send(
+            @RequestParam("deviceToken") String deviceToken, @RequestParam("content") String content
+    ) throws JSONException, InterruptedException {
+        String notifications = AndroidPushPeriodicNotifications.PeriodicNotificationJson(deviceToken, content);
 
         HttpEntity<String> request = new HttpEntity<>(notifications);
 
