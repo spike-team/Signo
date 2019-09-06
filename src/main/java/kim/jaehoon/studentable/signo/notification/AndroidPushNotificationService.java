@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class AndroidPushNotificationService {
 
-    @Value("${FIREBASE_SERVER_KEY}")
+    @Value("${custom.firebase.server_key}")
     private String firebase_server_key;
 
     @Async

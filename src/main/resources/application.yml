@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+custom:
+  firebase:
+    server_key: ${FIREBASE_SERVER_KEY}

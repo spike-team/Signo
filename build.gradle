@@ -23,16 +23,24 @@ repositories {
 }
 
 dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.slf4j:slf4j-api'
+    implementation 'org.json:json:20190722'
+    implementation 'javax.servlet:javax.servlet-api:3.0.1'
+    implementation 'com.google.firebase:firebase-admin:6.10.0'
+
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'com.google.firebase:firebase-admin:6.10.0'
-    implementation 'org.json:json:20190722'
-    implementation 'org.slf4j:slf4j-api'
-    implementation 'javax.servlet:javax.servlet-api:3.0.1'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'com.vaadin.external.google', module: 'android-json'
+    }
+
     testImplementation 'io.projectreactor:reactor-test'
 }
