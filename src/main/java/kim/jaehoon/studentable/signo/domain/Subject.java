@@ -13,5 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Subject {
 
     private School school;
+    private Teacher teacher;
+    private int grade;
 
 }
