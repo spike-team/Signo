@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("teacher")
@@ -12,7 +14,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 public class Teacher {
 
+    @Id
+    private ObjectId id;
+
     private String email;
     private String password;
-    private School school;
+    private String schoolCode;
 }

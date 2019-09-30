@@ -4,11 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import reactor.core.publisher.Flux;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Document("time_table")
 @Getter @Setter
@@ -16,10 +19,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Timetable {
 
-    private School school;
+    @Id
+    private ObjectId id;
+
+    private String schoolCode;
     private int grade;
-    @Field("school_class")
     private int schoolClass;
-    private Flux<Subject> subjects;
+    private ArrayList<String> subjects;
     private LocalDate date;
 }
