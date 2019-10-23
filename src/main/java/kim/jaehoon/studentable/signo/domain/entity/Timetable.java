@@ -1,4 +1,4 @@
-package kim.jaehoon.studentable.signo.domain;
+package kim.jaehoon.studentable.signo.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,9 +11,8 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import reactor.core.publisher.Flux;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-@Document("time_table")
+@Document("timetable")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,9 +21,15 @@ public class Timetable {
     @Id
     private ObjectId id;
 
-    private String schoolCode;
     private int grade;
+
+    @Field("school_class")
     private int schoolClass;
-    private ArrayList<String> subjects;
+
     private LocalDate date;
+
+    @Field("school_code")
+    private String schoolCode;
+
+    private Flux<Subject> subjects;
 }
