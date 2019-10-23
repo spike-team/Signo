@@ -25,6 +25,7 @@ Sīgno 프로젝트는 전국 시·도교육청 관할 초·중·고등학교에
 **기술 스택**
 
 - Spring Boot
+  - Spring Data MongoDB Reactive
 - MongoDB
 - Firebase Cloud Messaging
 - TravisCI
