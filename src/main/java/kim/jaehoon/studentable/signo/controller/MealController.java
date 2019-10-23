@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.controller;
 
-import kim.jaehoon.studentable.signo.domain.Meal;
+import kim.jaehoon.studentable.signo.domain.entity.Meal;
 import kim.jaehoon.studentable.signo.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

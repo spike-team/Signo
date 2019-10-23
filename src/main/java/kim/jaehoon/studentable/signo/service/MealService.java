@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.service;
 
-import kim.jaehoon.studentable.signo.domain.Meal;
+import kim.jaehoon.studentable.signo.domain.entity.Meal;
 import kim.jaehoon.studentable.signo.domain.repository.MealRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

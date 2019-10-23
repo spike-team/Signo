@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.service;
 
-import kim.jaehoon.studentable.signo.domain.Meal;
+import kim.jaehoon.studentable.signo.domain.entity.Meal;
 import reactor.core.publisher.Flux;
 
 public interface IMealService {
