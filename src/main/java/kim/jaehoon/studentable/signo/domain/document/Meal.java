@@ -1,4 +1,4 @@
-package kim.jaehoon.studentable.signo.domain.entity;
+package kim.jaehoon.studentable.signo.domain.document;
 
 import lombok.*;
 import org.bson.types.ObjectId;
@@ -7,10 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 @Document("meal")
 @Builder

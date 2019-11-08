@@ -1,4 +1,4 @@
-package kim.jaehoon.studentable.signo.domain.entity;
+package kim.jaehoon.studentable.signo.domain.document;
 
 import lombok.*;
 import org.bson.types.ObjectId;

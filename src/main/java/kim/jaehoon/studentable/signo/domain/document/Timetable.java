@@ -1,4 +1,4 @@
-package kim.jaehoon.studentable.signo.domain.entity;
+package kim.jaehoon.studentable.signo.domain.document;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,22 +8,26 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import reactor.core.publisher.Flux;
 
-@Document("subject")
+import java.time.LocalDate;
+
+@Document("timetable")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subject {
+public class Timetable {
 
     @Id
     private ObjectId id;
 
-    private int grade;
-    private String name;
+    @Field("school_class")
+    private int schoolClass;
 
-    @Field("teacher_id")
-    private String teacherId;
+    private LocalDate date;
 
     @Field("school_code")
     private String schoolCode;
+
+    private Flux<Subject> subjects;
 }
