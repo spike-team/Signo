@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.domain.repository;
 
-import kim.jaehoon.studentable.signo.domain.entity.TimetableManager;
+import kim.jaehoon.studentable.signo.domain.document.TimetableManager;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Mono;
 

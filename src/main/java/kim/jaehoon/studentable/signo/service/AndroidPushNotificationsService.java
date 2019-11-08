@@ -1,5 +1,6 @@
 package kim.jaehoon.studentable.signo.service;
 
+import kim.jaehoon.studentable.signo.util.HeaderRequestInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.client.ClientHttpRequestInterceptor;

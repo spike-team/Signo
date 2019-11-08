@@ -1,4 +1,4 @@
-package kim.jaehoon.studentable.signo.domain.entity;
+package kim.jaehoon.studentable.signo.domain.document;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,16 +9,21 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document("school")
+@Document("subject")
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class School {
+public class Subject {
 
     @Id
     private ObjectId id;
 
+    private int grade;
+    private String name;
+
+    @Field("teacher_id")
+    private String teacherId;
+
     @Field("school_code")
     private String schoolCode;
-    private String name;
 }

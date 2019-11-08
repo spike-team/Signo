@@ -1,4 +1,4 @@
-package kim.jaehoon.studentable.signo.service;
+package kim.jaehoon.studentable.signo.util;
 
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
