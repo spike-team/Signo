@@ -1,12 +1,12 @@
 package kim.jaehoon.studentable.signo.domain.payload;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.AllArgsConstructor;
 
 @Getter @Setter
 @AllArgsConstructor
-public class ApiResponse {
-    private Boolean success;
-    private String message;
+public class TokenResponse {
+    private String accessToken;
+    private String refreshToken;
 }
