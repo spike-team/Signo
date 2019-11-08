@@ -1,7 +1,7 @@
 package kim.jaehoon.studentable.signo.controller;
 
 import kim.jaehoon.studentable.signo.service.AndroidPushNotificationsService;
-import kim.jaehoon.studentable.signo.service.AndroidPushPeriodicNotifications;
+import kim.jaehoon.studentable.signo.util.AndroidPushPeriodicNotifications;
 import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

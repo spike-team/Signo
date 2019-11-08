@@ -1,23 +1,35 @@
 package kim.jaehoon.studentable.signo.controller;
 
-import kim.jaehoon.studentable.signo.domain.entity.Meal;
-import kim.jaehoon.studentable.signo.service.MealService;
+import kim.jaehoon.studentable.signo.domain.payload.Menu;
+import kim.jaehoon.studentable.signo.exception.BadRequestException;
+import kim.jaehoon.studentable.signo.service.meal.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 @RestController
-@RequestMapping(value = "/meal")
+@RequestMapping(value = "/api/v1")
 public class MealController {
 
     @Autowired
     MealService mealService;
 
-    @GetMapping
-    public Flux<Meal> getMeal(@RequestParam String date, @RequestParam("school_code") String schoolCode) {
-        return mealService.findBySchoolAndDate(schoolCode, date);
+    @GetMapping("/meal")
+    public Mono<Menu> getMeal(@RequestParam String date, @RequestParam("school_code") String schoolCode) {
+
+        try {
+            return mealService.findBySchoolAndDate(schoolCode, LocalDate.parse(date));
+            
+        } catch (DateTimeParseException exception) {
+            throw new BadRequestException(exception.getMessage());
+
+        }
+
     }
 }
