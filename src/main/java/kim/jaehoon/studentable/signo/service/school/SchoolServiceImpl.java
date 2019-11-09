@@ -2,8 +2,10 @@ package kim.jaehoon.studentable.signo.service.school;
 
 import kim.jaehoon.studentable.signo.domain.document.SchoolInfo;
 import kim.jaehoon.studentable.signo.domain.repository.SchoolInfoRepository;
+import kim.jaehoon.studentable.signo.exception.SchoolNotFoundException;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class SchoolServiceImpl implements SchoolService {
@@ -16,7 +18,8 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public Flux<SchoolInfo> findAllByName(String name) {
-        return schoolInfoRepository.findAllByFullNameContaining(name);
+        return schoolInfoRepository.findAllByFullNameContaining(name)
+                .switchIfEmpty(Mono.error(new SchoolNotFoundException()));
     }
 
     @Override
