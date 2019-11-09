@@ -1,12 +1,16 @@
 package kim.jaehoon.studentable.signo.domain.document;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import kim.jaehoon.studentable.signo.domain.payload.Menu;
+import kr.go.neis.api.SchoolMenu;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
-import reactor.core.publisher.Flux;
+
+import java.util.List;
 
 @Document("meal")
 @Builder
@@ -16,16 +20,16 @@ import reactor.core.publisher.Flux;
 public class Meal {
 
     @Id
+    @JsonIgnore
     private ObjectId id;
 
+    @JsonIgnore
     @Field("school_code")
     private String schoolCode;
 
+    @JsonIgnore
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private String date;
 
-    @Field("meal_type")
-    private String mealType;
-
-    private Flux<String> menu;
+    private List<Menu> menus;
 }
