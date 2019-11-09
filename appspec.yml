@@ -12,10 +12,10 @@ permissions:
 
 hooks:
   ApplicationStart:
-    - location: deploy.sh
+    - location: ./scripts/deploy.sh
       timeout: 60
       runas: ubuntu
   ValidateService:
-    - location: healthCheck.sh
+    - location: ./scripts/healthCheck.sh
       timeout: 60
       runas: ubuntu
