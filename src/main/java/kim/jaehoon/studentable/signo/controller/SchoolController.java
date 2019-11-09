@@ -23,7 +23,7 @@ public class SchoolController {
         return schoolService.findAll();
     }
 
-    @GetMapping("/school/search")
+    @GetMapping("/school")
     public Flux<SchoolInfo> searchSchoolId(@RequestParam String key) {
         return schoolService.findAllByName(key);
     }
