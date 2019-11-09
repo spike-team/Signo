@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.controller;
 
-import kim.jaehoon.studentable.signo.domain.payload.Menu;
+import kim.jaehoon.studentable.signo.domain.document.Meal;
 import kim.jaehoon.studentable.signo.exception.BadRequestException;
 import kim.jaehoon.studentable.signo.service.meal.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,11 @@ public class MealController {
     MealService mealService;
 
     @GetMapping("/meal")
-    public Mono<Menu> getMeal(@RequestParam String date, @RequestParam("school_code") String schoolCode) {
+    public Mono<Meal> getMeal(@RequestParam String date, @RequestParam("school_code") String schoolCode) {
 
         try {
-            return mealService.findBySchoolAndDate(schoolCode, LocalDate.parse(date));
-            
+            return mealService.findBySchoolAndDate(schoolCode, LocalDate.parse(date).withDayOfMonth(1));
+
         } catch (DateTimeParseException exception) {
             throw new BadRequestException(exception.getMessage());
 
