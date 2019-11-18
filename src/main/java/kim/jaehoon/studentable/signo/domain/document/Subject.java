@@ -9,6 +9,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.time.DayOfWeek;
+import java.util.List;
+
 @Document("subject")
 @Getter @Setter
 @NoArgsConstructor
@@ -18,12 +21,20 @@ public class Subject {
     @Id
     private ObjectId id;
 
-    private int grade;
-    private String name;
-
     @Field("teacher_id")
     private String teacherId;
 
     @Field("school_code")
     private String schoolCode;
+
+    @Field("school_class")
+    private String schoolClass;
+
+    private String name;
+
+    private DayOfWeek dayOfWeek;
+
+    @Field("class_days")
+    private Integer classDays;
+
 }
