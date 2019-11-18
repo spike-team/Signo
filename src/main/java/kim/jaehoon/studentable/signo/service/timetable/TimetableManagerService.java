@@ -7,4 +7,6 @@ public interface TimetableManagerService {
 
     Mono<TokenResponse> signIn(String email, String password);
 
+    Mono<TokenResponse> refresh(String identity);
+
 }
