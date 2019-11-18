@@ -27,4 +27,5 @@ public class SchoolController {
     public Flux<SchoolInfo> searchSchoolId(@RequestParam String key) {
         return schoolService.findAllByName(key);
     }
+
 }
