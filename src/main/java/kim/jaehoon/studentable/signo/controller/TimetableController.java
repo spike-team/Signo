@@ -1,6 +1,7 @@
 package kim.jaehoon.studentable.signo.controller;
 
 import kim.jaehoon.studentable.signo.domain.document.Timetable;
+import kim.jaehoon.studentable.signo.domain.payload.MappedTimetable;
 import kim.jaehoon.studentable.signo.domain.repository.TimetableRepository;
 import kim.jaehoon.studentable.signo.service.timetable.TimetableService;
 import org.bson.types.ObjectId;
@@ -15,11 +16,14 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class TimetableController {
 
-    @Autowired
-    TimetableService timetableService;
+    private TimetableService timetableService;
+    private TimetableRepository timetableRepository;
 
     @Autowired
-    TimetableRepository timetableRepository;
+    public TimetableController(TimetableService timetableService, TimetableRepository timetableRepository) {
+        this.timetableService = timetableService;
+        this.timetableRepository = timetableRepository;
+    }
 
     @GetMapping("/timetables")
     public Flux<Timetable> getAll() {
@@ -27,7 +31,7 @@ public class TimetableController {
     }
 
     @GetMapping("/timetable")
-    public Mono<Timetable> getBySchoolClass(@RequestParam("schoolCode") String schoolCode, @RequestParam("schoolClass") String schoolClass) {
+    public Mono<MappedTimetable> getBySchoolClass(@RequestParam("schoolCode") String schoolCode, @RequestParam("schoolClass") String schoolClass) {
         return timetableService.findBySchoolCodeAndSchoolClass(schoolCode, schoolClass);
     }
 
