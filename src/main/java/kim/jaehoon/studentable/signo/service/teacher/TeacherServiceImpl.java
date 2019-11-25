@@ -4,7 +4,7 @@ import kim.jaehoon.studentable.signo.domain.document.Teacher;
 import kim.jaehoon.studentable.signo.domain.payload.TeacherInfo;
 import kim.jaehoon.studentable.signo.domain.payload.Teachers;
 import kim.jaehoon.studentable.signo.domain.repository.TeacherRepository;
-import kim.jaehoon.studentable.signo.domain.repository.TimetableManagerRepository;
+import kim.jaehoon.studentable.signo.domain.repository.ManagerRepository;
 import kim.jaehoon.studentable.signo.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class TeacherServiceImpl implements TeacherService {
     TeacherRepository teacherRepository;
 
     @Autowired
-    TimetableManagerRepository managerRepository;
+    ManagerRepository managerRepository;
 
     @Override
     public Flux createTeachers(Teachers teacherInfos, String identity) {
