@@ -1,8 +1,7 @@
-package kim.jaehoon.studentable.signo.domain.document;
+package kim.jaehoon.studentable.signo.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import kim.jaehoon.studentable.signo.domain.payload.Menu;
-import kr.go.neis.api.SchoolMenu;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.controller;
 
-import kim.jaehoon.studentable.signo.domain.document.Subject;
+import kim.jaehoon.studentable.signo.domain.entity.Subject;
 import kim.jaehoon.studentable.signo.domain.payload.PreSubject;
 import kim.jaehoon.studentable.signo.service.subject.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.domain.repository;
 
-import kim.jaehoon.studentable.signo.domain.document.Manager;
+import kim.jaehoon.studentable.signo.domain.entity.Manager;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Mono;
 

@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.controller;
 
-import kim.jaehoon.studentable.signo.domain.document.Meal;
+import kim.jaehoon.studentable.signo.domain.entity.Meal;
 import kim.jaehoon.studentable.signo.exception.BadRequestException;
 import kim.jaehoon.studentable.signo.service.meal.MealService;
 import org.springframework.beans.factory.annotation.Autowired;

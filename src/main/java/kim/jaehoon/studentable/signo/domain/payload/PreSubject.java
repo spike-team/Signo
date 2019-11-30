@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.domain.payload;
 
-import kim.jaehoon.studentable.signo.domain.document.Subject;
+import kim.jaehoon.studentable.signo.domain.entity.Subject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,10 +1,9 @@
 package kim.jaehoon.studentable.signo.domain.payload;
 
-import kim.jaehoon.studentable.signo.domain.document.Manager;
+import kim.jaehoon.studentable.signo.domain.entity.Manager;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

@@ -30,7 +30,7 @@ public class ManagerController {
     public Mono verify(@RequestParam("code") String code, ServerWebExchange exchange) {
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.SEE_OTHER);
-        response.getHeaders().add(HttpHeaders.LOCATION, "http://studentable.jaehoon.kim/login");
+        response.getHeaders().add(HttpHeaders.LOCATION, "http://studentable.jaehoon.kim/emailauth");
         return managerService.verify(code)
                 .then(response.setComplete());
     }

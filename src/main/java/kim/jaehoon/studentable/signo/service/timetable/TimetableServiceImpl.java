@@ -1,7 +1,7 @@
 package kim.jaehoon.studentable.signo.service.timetable;
 
-import kim.jaehoon.studentable.signo.domain.document.Subject;
-import kim.jaehoon.studentable.signo.domain.document.Timetable;
+import kim.jaehoon.studentable.signo.domain.entity.Subject;
+import kim.jaehoon.studentable.signo.domain.entity.Timetable;
 import kim.jaehoon.studentable.signo.domain.payload.MappedTimetable;
 import kim.jaehoon.studentable.signo.domain.repository.SubjectRepository;
 import kim.jaehoon.studentable.signo.domain.repository.TimetableRepository;

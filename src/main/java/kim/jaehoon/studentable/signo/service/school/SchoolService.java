@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.service.school;
 
-import kim.jaehoon.studentable.signo.domain.document.SchoolInfo;
+import kim.jaehoon.studentable.signo.domain.entity.SchoolInfo;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 

@@ -1,7 +1,7 @@
 package kim.jaehoon.studentable.signo.service.meal;
 
-import kim.jaehoon.studentable.signo.domain.document.Meal;
-import kim.jaehoon.studentable.signo.domain.document.SchoolInfo;
+import kim.jaehoon.studentable.signo.domain.entity.Meal;
+import kim.jaehoon.studentable.signo.domain.entity.SchoolInfo;
 import kim.jaehoon.studentable.signo.domain.payload.Menu;
 import kim.jaehoon.studentable.signo.domain.repository.MealRepository;
 import kim.jaehoon.studentable.signo.domain.repository.SchoolInfoRepository;

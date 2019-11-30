@@ -1,5 +1,6 @@
-package kim.jaehoon.studentable.signo.domain.document;
+package kim.jaehoon.studentable.signo.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -9,10 +10,9 @@ import java.util.UUID;
 @Data
 public class Manager {
 
-    @Id
-    private String id;
+    @Id private String id;
     private String email;
-    private String password;
+    @JsonIgnore private String password;
     private String schoolCode;
     private boolean emailVerified = false;
     private String verificationCode;

@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.controller;
 
-import kim.jaehoon.studentable.signo.domain.document.SchoolInfo;
+import kim.jaehoon.studentable.signo.domain.entity.SchoolInfo;
 import kim.jaehoon.studentable.signo.service.school.SchoolService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

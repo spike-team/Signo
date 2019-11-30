@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.service.subject;
 
-import kim.jaehoon.studentable.signo.domain.document.Subject;
+import kim.jaehoon.studentable.signo.domain.entity.Subject;
 import kim.jaehoon.studentable.signo.domain.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

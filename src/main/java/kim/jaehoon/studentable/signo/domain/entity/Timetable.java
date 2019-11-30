@@ -1,4 +1,4 @@
-package kim.jaehoon.studentable.signo.domain.document;
+package kim.jaehoon.studentable.signo.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

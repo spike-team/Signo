@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.service.manager;
 
-import kim.jaehoon.studentable.signo.domain.document.Manager;
+import kim.jaehoon.studentable.signo.domain.entity.Manager;
 import kim.jaehoon.studentable.signo.domain.payload.TokenResponse;
 import kim.jaehoon.studentable.signo.domain.repository.EmailRepository;
 import kim.jaehoon.studentable.signo.domain.repository.ManagerRepository;
@@ -8,24 +8,15 @@ import kim.jaehoon.studentable.signo.domain.repository.SchoolInfoRepository;
 import kim.jaehoon.studentable.signo.exception.*;
 import kim.jaehoon.studentable.signo.service.token.TokenService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.reactive.result.view.RedirectView;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Service
 @AllArgsConstructor

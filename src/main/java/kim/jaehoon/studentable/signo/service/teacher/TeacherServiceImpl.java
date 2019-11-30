@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.service.teacher;
 
-import kim.jaehoon.studentable.signo.domain.document.Teacher;
+import kim.jaehoon.studentable.signo.domain.entity.Teacher;
 import kim.jaehoon.studentable.signo.domain.payload.TeacherInfo;
 import kim.jaehoon.studentable.signo.domain.payload.Teachers;
 import kim.jaehoon.studentable.signo.domain.repository.TeacherRepository;
