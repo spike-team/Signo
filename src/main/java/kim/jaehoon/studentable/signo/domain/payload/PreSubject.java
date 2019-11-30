@@ -1,26 +1,19 @@
-package kim.jaehoon.studentable.signo.domain.document;
+package kim.jaehoon.studentable.signo.domain.payload;
 
+import kim.jaehoon.studentable.signo.domain.document.Subject;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.DayOfWeek;
 import java.util.List;
 
-@Document("subject")
-@Getter @Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Subject {
-
-    @Id
-    private String id;
-
+public class PreSubject {
     @Field("school_code")
     private String schoolCode;
 
@@ -36,5 +29,9 @@ public class Subject {
 
     @Field("class_days")
     private Integer classDays;
+
+    public Subject toSubject() {
+        return new Subject(new ObjectId().toString(), schoolCode, schoolClass, teacherId, name, dayOfWeek, classDays);
+    }
 
 }

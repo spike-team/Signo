@@ -1,16 +1,14 @@
 package kim.jaehoon.studentable.signo.domain.document;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-import reactor.core.publisher.Flux;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Document("timetable")
 @Getter @Setter
@@ -18,16 +16,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Timetable {
 
-    @Id
-    private ObjectId id;
+    @Id @JsonIgnore
+    private String id;
 
-    @Field("school_class")
-    private int schoolClass;
+    private String schoolClass;
 
-    private LocalDate date;
-
-    @Field("school_code")
     private String schoolCode;
 
-    private Flux<Subject> subjects;
+    private List<String> subjects;
 }

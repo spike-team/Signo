@@ -7,6 +7,7 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
+    log-request-details: true
 custom:
   firebase:
     server_key: ${FIREBASE_SERVER_KEY}
