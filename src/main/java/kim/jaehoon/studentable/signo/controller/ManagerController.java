@@ -4,6 +4,7 @@ import kim.jaehoon.studentable.signo.domain.payload.Login;
 import kim.jaehoon.studentable.signo.domain.payload.SignUpForm;
 import kim.jaehoon.studentable.signo.domain.payload.TokenResponse;
 import kim.jaehoon.studentable.signo.service.manager.ManagerService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -12,14 +13,11 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/v1")
 public class ManagerController {
 
     private ManagerService managerService;
-
-    public ManagerController(ManagerService managerService) {
-        this.managerService = managerService;
-    }
 
     @PostMapping("/manager/signup")
     public Mono signUp(@RequestBody SignUpForm signUpForm) {
