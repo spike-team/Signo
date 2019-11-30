@@ -8,6 +8,8 @@ public interface ManagerRepository extends ReactiveCrudRepository<Manager, Strin
 
     Mono<Manager> findByEmail(String email);
 
+    Mono<Manager> findByEmailAndEmailVerified(String email, boolean verified);
+
     Mono<Manager> findByVerificationCode(String code);
 
 }

@@ -31,14 +31,8 @@ public class TimetableController {
     }
 
     @GetMapping("/timetable")
-    public Mono<MappedTimetable> getBySchoolClass(@RequestParam("schoolCode") String schoolCode, @RequestParam("schoolClass") String schoolClass) {
+    public Mono<MappedTimetable> getBySchoolClass(@RequestParam String schoolCode, @RequestParam("schoolClass") String schoolClass) {
         return timetableService.findBySchoolCodeAndSchoolClass(schoolCode, schoolClass);
-    }
-
-    @PostMapping("/timetable")
-    public Mono insertTimetable() {
-        Timetable timetable = new Timetable(new ObjectId().toString(), "2-2", "7430310", List.of("vbh3hd93id", "29enf3ijdf", "dn2edi3nj8edj", "asdnfniune1213"));
-        return timetableService.insertTimetable(timetable);
     }
 
 }

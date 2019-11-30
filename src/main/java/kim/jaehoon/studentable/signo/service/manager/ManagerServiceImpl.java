@@ -65,7 +65,7 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public Mono<TokenResponse> signIn(String email, String password) {
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        return managerRepository.findByEmail(email)
+        return managerRepository.findByEmailAndEmailVerified(email, true)
                 .switchIfEmpty(Mono.error(new UserNotFoundException()))
                 .flatMap(user -> {
                     if (encoder.matches(password, user.getPassword())) {

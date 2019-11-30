@@ -21,7 +21,7 @@ public class MealController {
     MealService mealService;
 
     @GetMapping("/meal")
-    public Mono<Meal> getMeal(@RequestParam String date, @RequestParam("school_code") String schoolCode) {
+    public Mono<Meal> getMeal(@RequestParam String date, @RequestParam String schoolCode) {
 
         try {
             return mealService.findBySchoolAndDate(schoolCode, LocalDate.parse(date).withDayOfMonth(1));
