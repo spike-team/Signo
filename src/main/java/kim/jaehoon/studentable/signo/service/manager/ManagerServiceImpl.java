@@ -6,6 +6,7 @@ import kim.jaehoon.studentable.signo.domain.repository.EmailRepository;
 import kim.jaehoon.studentable.signo.domain.repository.ManagerRepository;
 import kim.jaehoon.studentable.signo.domain.repository.SchoolInfoRepository;
 import kim.jaehoon.studentable.signo.exception.*;
+import kim.jaehoon.studentable.signo.exception.manager.ManagerNotFoundException;
 import kim.jaehoon.studentable.signo.service.token.TokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.core.io.ClassPathResource;
@@ -74,6 +75,12 @@ public class ManagerServiceImpl implements ManagerService {
                         return Mono.error(new InvalidUserCredentialException());
                     }
                 });
+    }
+
+    @Override
+    public Mono<Manager> findByEmail(String email) {
+        return managerRepository.findByEmail(email)
+                .switchIfEmpty(Mono.error(ManagerNotFoundException::new));
     }
 
 }

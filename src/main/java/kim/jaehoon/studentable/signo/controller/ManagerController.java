@@ -4,6 +4,7 @@ import kim.jaehoon.studentable.signo.domain.payload.Login;
 import kim.jaehoon.studentable.signo.domain.payload.SignUpForm;
 import kim.jaehoon.studentable.signo.domain.payload.TokenResponse;
 import kim.jaehoon.studentable.signo.service.manager.ManagerService;
+import kim.jaehoon.studentable.signo.service.token.TokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,14 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/api/v1")
 public class ManagerController {
 
+    private TokenService tokenService;
     private ManagerService managerService;
+
+    @GetMapping("/manager/me")
+    public Mono getMyInfo(@RequestHeader("Authorization") String auth) {
+        String managerEmail = tokenService.getIdentity(auth.replace("Bearer ", ""));
+        return managerService.findByEmail(managerEmail);
+    }
 
     @PostMapping("/manager/signup")
     public Mono signUp(@RequestBody SignUpForm signUpForm) {

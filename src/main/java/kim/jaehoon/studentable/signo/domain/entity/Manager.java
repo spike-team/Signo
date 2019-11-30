@@ -10,12 +10,13 @@ import java.util.UUID;
 @Data
 public class Manager {
 
+    @JsonIgnore
     @Id private String id;
     private String email;
     @JsonIgnore private String password;
     private String schoolCode;
-    private boolean emailVerified = false;
-    private String verificationCode;
+    @JsonIgnore private boolean emailVerified = false;
+    @JsonIgnore private String verificationCode;
 
     public Manager(String email, String password, String schoolCode) {
         this.id = new ObjectId().toString();

@@ -12,4 +12,6 @@ public interface ManagerService {
 
     Mono<TokenResponse> signIn(String email, String password);
 
+    Mono<Manager> findByEmail(String email);
+
 }

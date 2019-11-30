@@ -7,8 +7,6 @@ import reactor.core.publisher.Mono;
 @Service
 public interface StudentService {
 
-    Mono addStudentInfo(StudentForm studentInfo);
-
     Mono updateStudentInfo(StudentForm studentInfo);
 
 }

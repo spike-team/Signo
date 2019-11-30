@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import kim.jaehoon.studentable.signo.exception.InvalidTokenSignatureException;
+import kim.jaehoon.studentable.signo.exception.TokenError;
 import kim.jaehoon.studentable.signo.exception.TokenExpiredException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -36,12 +37,14 @@ public class TokenServiceImpl implements TokenService {
                     .setSigningKey(secretKey)
                     .parseClaimsJws(jwt)
                     .getBody();
-            if (Date.from(Instant.now()).before(parsed.getExpiration())) {
+            if (parsed.getExpiration().before(Date.from(Instant.now()))) {
                 throw new TokenExpiredException("Token has expired");
             }
             return parsed.getSubject();
         } catch (SignatureException e) {
             throw new InvalidTokenSignatureException();
+        } catch (Exception e) {
+            throw new TokenError(e.getMessage());
         }
     }
 

@@ -14,13 +14,8 @@ public class StudentController {
 
     private StudentService studentService;
 
-    @PostMapping("/student")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Mono addStudentInfo(@RequestBody StudentForm studentForm) {
-        return studentService.addStudentInfo(studentForm);
-    }
-
     @PutMapping("/student")
+    @ResponseStatus(HttpStatus.OK)
     public Mono updateStudentInfo(@RequestBody StudentForm studentForm) {
         return studentService.updateStudentInfo(studentForm);
     }
