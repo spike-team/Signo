@@ -32,11 +32,9 @@ import java.nio.file.Paths;
 public class ManagerServiceImpl implements ManagerService {
 
     private TokenService tokenService;
-    private PasswordEncoder passwordEncoder;
     private ManagerRepository managerRepository;
     private EmailRepository emailRepository;
     private SchoolInfoRepository schoolInfoRepository;
-    private ResourceLoader resourceLoader;
 
     @Override
     public Mono signUp(Manager manager) {
@@ -75,10 +73,11 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     public Mono<TokenResponse> signIn(String email, String password) {
+        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         return managerRepository.findByEmail(email)
                 .switchIfEmpty(Mono.error(new UserNotFoundException()))
                 .flatMap(user -> {
-                    if (passwordEncoder.matches(password, user.getPassword())) {
+                    if (encoder.matches(password, user.getPassword())) {
                         return Mono.just(new TokenResponse(tokenService.createAccessToken(email), tokenService.createRefreshToken(email)));
                     } else {
                         return Mono.error(new InvalidUserCredentialException());
@@ -89,6 +88,11 @@ public class ManagerServiceImpl implements ManagerService {
     @Override
     public Mono<TokenResponse> refresh(String identity) {
         return Mono.just(TokenResponse.containRefreshToken(tokenService.createAccessToken(identity)));
+    }
+
+    @Override
+    public Mono logOut(String identity, String refresh) {
+        return null;
     }
 
 }

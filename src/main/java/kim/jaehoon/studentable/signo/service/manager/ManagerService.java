@@ -14,4 +14,6 @@ public interface ManagerService {
 
     Mono<TokenResponse> refresh(String identity);
 
+    Mono logOut(String identity, String refresh);
+
 }

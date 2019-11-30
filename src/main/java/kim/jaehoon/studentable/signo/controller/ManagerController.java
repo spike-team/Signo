@@ -6,7 +6,6 @@ import kim.jaehoon.studentable.signo.domain.payload.TokenResponse;
 import kim.jaehoon.studentable.signo.service.manager.ManagerService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ServerWebExchange;
@@ -31,7 +30,7 @@ public class ManagerController {
     public Mono verify(@RequestParam("code") String code, ServerWebExchange exchange) {
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.SEE_OTHER);
-        response.getHeaders().add(HttpHeaders.LOCATION, "http://studentable.jaehoon.kim");
+        response.getHeaders().add(HttpHeaders.LOCATION, "http://studentable.jaehoon.kim/login");
         return managerService.verify(code)
                 .then(response.setComplete());
     }

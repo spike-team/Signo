@@ -4,6 +4,9 @@ import kim.jaehoon.studentable.signo.domain.document.Manager;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.Email;
 
@@ -20,7 +23,8 @@ public class SignUpForm {
     private String schoolCode;
 
     public Manager toManager() {
-        return new Manager(email, password, schoolCode);
+        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return new Manager(email, encoder.encode(password), schoolCode);
     }
 
 }
