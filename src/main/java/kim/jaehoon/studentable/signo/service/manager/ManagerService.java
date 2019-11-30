@@ -12,8 +12,4 @@ public interface ManagerService {
 
     Mono<TokenResponse> signIn(String email, String password);
 
-    Mono<TokenResponse> refresh(String identity);
-
-    Mono logOut(String identity, String refresh);
-
 }

@@ -40,9 +40,4 @@ public class ManagerController {
         return managerService.signIn(login.getEmail(), login.getPassword());
     }
 
-    @PatchMapping("/manager/auth")
-    public Mono<TokenResponse> refresh(@RequestHeader("X-Refresh-Token") String refresh) {
-        return managerService.refresh(refresh);
-    }
-
 }

@@ -78,21 +78,11 @@ public class ManagerServiceImpl implements ManagerService {
                 .switchIfEmpty(Mono.error(new UserNotFoundException()))
                 .flatMap(user -> {
                     if (encoder.matches(password, user.getPassword())) {
-                        return Mono.just(new TokenResponse(tokenService.createAccessToken(email), tokenService.createRefreshToken(email)));
+                        return Mono.just(new TokenResponse(tokenService.createAccessToken(email)));
                     } else {
                         return Mono.error(new InvalidUserCredentialException());
                     }
                 });
-    }
-
-    @Override
-    public Mono<TokenResponse> refresh(String identity) {
-        return Mono.just(TokenResponse.containRefreshToken(tokenService.createAccessToken(identity)));
-    }
-
-    @Override
-    public Mono logOut(String identity, String refresh) {
-        return null;
     }
 
 }
