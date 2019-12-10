@@ -5,18 +5,13 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
-import kim.jaehoon.studentable.signo.exception.InvalidTokenSignatureException;
-import kim.jaehoon.studentable.signo.exception.TokenError;
+import kim.jaehoon.studentable.signo.exception.manager.InvalidTokenSignatureException;
+import kim.jaehoon.studentable.signo.exception.error.TokenError;
 import kim.jaehoon.studentable.signo.exception.TokenExpiredException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestHeader;
 
 import javax.crypto.SecretKey;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 import java.time.Instant;
 import java.util.Date;
 

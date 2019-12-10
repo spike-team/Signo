@@ -2,7 +2,7 @@ package kim.jaehoon.studentable.signo.service.school;
 
 import kim.jaehoon.studentable.signo.domain.entity.SchoolInfo;
 import kim.jaehoon.studentable.signo.domain.repository.SchoolInfoRepository;
-import kim.jaehoon.studentable.signo.exception.SchoolNotFoundException;
+import kim.jaehoon.studentable.signo.exception.school.SchoolNotFoundException;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
