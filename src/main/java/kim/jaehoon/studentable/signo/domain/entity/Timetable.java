@@ -19,9 +19,9 @@ public class Timetable {
     @Id @JsonIgnore
     private String id;
 
-    private String schoolClass;
-
     private String schoolCode;
+
+    private String schoolClass;
 
     private List<String> subjects;
 }
