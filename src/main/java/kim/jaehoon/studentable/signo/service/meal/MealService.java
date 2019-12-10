@@ -1,6 +1,6 @@
 package kim.jaehoon.studentable.signo.service.meal;
 
-import kim.jaehoon.studentable.signo.domain.document.Meal;
+import kim.jaehoon.studentable.signo.domain.entity.Meal;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 

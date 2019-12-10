@@ -1,12 +1,12 @@
 package kim.jaehoon.studentable.signo.service.meal;
 
-import kim.jaehoon.studentable.signo.domain.document.Meal;
-import kim.jaehoon.studentable.signo.domain.document.SchoolInfo;
+import kim.jaehoon.studentable.signo.domain.entity.Meal;
+import kim.jaehoon.studentable.signo.domain.entity.SchoolInfo;
 import kim.jaehoon.studentable.signo.domain.payload.Menu;
 import kim.jaehoon.studentable.signo.domain.repository.MealRepository;
 import kim.jaehoon.studentable.signo.domain.repository.SchoolInfoRepository;
-import kim.jaehoon.studentable.signo.exception.SchoolError;
-import kim.jaehoon.studentable.signo.exception.SchoolNotFoundException;
+import kim.jaehoon.studentable.signo.exception.school.SchoolError;
+import kim.jaehoon.studentable.signo.exception.school.SchoolNotFoundException;
 import kr.go.neis.api.School;
 import kr.go.neis.api.SchoolException;
 import kr.go.neis.api.SchoolMenu;
