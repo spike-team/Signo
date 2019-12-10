@@ -1,4 +1,4 @@
-package kim.jaehoon.studentable.signo.exception;
+package kim.jaehoon.studentable.signo.exception.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
